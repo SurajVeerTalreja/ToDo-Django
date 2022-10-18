@@ -1,0 +1,33 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block content %}
+
+
+<h1 class="heading">Enter your ToDo Entry Here:</h1>
+
+<div class="form-group home">
+<form method="POST">
+    {% csrf_token %}
+    <div class="container">
+        {{ form.entry.label_tag }}
+        <br>
+        {{ form.entry}}
+    </div>
+
+    <div class="container">
+        {{ form.details.label_tag }}
+        <br>
+        {{ form.details}}
+    </div>
+
+    <div class="container">
+        {{ form.is_important.label_tag }}
+        {{ form.is_important}}
+    </div>
+    <br>
+    <input class="btn btn-dark" type="submit" value="Submit Entry">
+</form>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block content %}
+
+<h1 class="heading">Your ToDo list is shown below:</h1>
+
+<div class="container-fluid home">
+    {% if todo_list %}
+        {% for entry in todo_list %}
+            <a href="/dashboard/detail_list/{{ entry.id }}">
+                <h2>{{entry.entry}}
+                    <a href="/dashboard/update_entry/{{ entry.id }}"><h6>Update Entry</h6></a> </li>
+                    <a href="/dashboard/delete_entry/{{ entry.id }}"><h6>Delete Entry</h6></a> </li>
+                </h2></a>
+                <br>
+        {% endfor %}
+    {% else %}
+        <h3 class="heading">Your List is Empty. Create your list by clicking one the link below:</h3>
+        <a href="/dashboard/entry/">New Entry</a>
+    {% endif %}
+
+
+</div>
+{% endblock %}
